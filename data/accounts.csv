@@ -1,0 +1,5 @@
+account_id,account_name,avg_amount,typical_categories
+ACC001,Personal Chequing,45.0,"groceries,dining,utilities"
+ACC002,Business Card,220.0,"office_supplies,travel,software"
+ACC003,Premium Card,350.0,"travel,dining,electronics"
+ACC004,Student Card,25.0,"groceries,dining,entertainment"
