@@ -5,20 +5,9 @@ anomalous bank transactions, and a two-layer AI agent turns each flagged
 transaction into a plain-English alert for a fraud analyst.
 
 ```
-transactions.csv  →  features  →  Isolation Forest  →  severity
-                                                            │
-                                                            ▼
-                                     Layer A: Python rules engine
-                                     (tag the pattern, check account
-                                      history, decide dispatch_safe)
-                                                            │
-                                                            ▼
-                                     Layer B: local Llama (via Ollama)
-                                     writes the alert (or a template,
-                                     if Ollama isn't running)
-                                                            │
-                                                            ▼
-                                        console + alerts_log.json
+Here's the full path that score travels, end to end:(docs/fraud_pipeline_architecture.png)
+
+
 ```
 
 ## What it does
