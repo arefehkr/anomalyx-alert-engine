@@ -62,18 +62,53 @@ python run_pipeline.py --max-alerts 3   # cap alerts (useful while testing)
 pytest tests/ -v                        # 12 tests
 ```
 
+## Sample output
+
+Real output from `python run_pipeline.py` with Ollama running — the
+`headline` and `explanation` text below is written by Llama 3.2, not a
+template:
+
+[RED] High-Severity Transaction with Unusual Anomaly Score
+Account: Student Card  |  Amount: $67.44  |  Score: 0.94  |  Urgency: high
+Tags: Off-Hours Activity, Unfamiliar Merchant Category
+The transaction is a withdrawal of $67.44 from the Student Card account,
+which has an unusual anomaly score of 0.938, indicating potential
+suspicious activity.
+Action: Verify if the account holder intended to withdraw this amount
+and confirm the merchant category matches.
+Dispatch safe: True  (No recent alert for this account -- safe to dispatch)
+Written by: llm
+
+
+[YELLOW] Potential General Statistical Anomaly on Student Card
+Account: Student Card  |  Amount: $43.53  |  Score: 0.47  |  Urgency: low
+Tags: General Statistical Anomaly
+The transaction is classified as a General Statistical Anomaly due to
+its low amount, suggesting possible fraud or error. This account's
+usage often has low values.
+Action: Verify the merchant and account details for accuracy before
+clearing the transaction.
+Dispatch safe: True  (No recent alert for this account -- safe to dispatch)
+Written by: llm
+
+
 ## Results (this synthetic demo dataset)
+
+Full run against all 464 transactions, 47 alerts generated:
 
 | | |
 |---|---|
-| Recall | **100%** — every injected anomaly was flagged |
-| Precision | **62.7%** — about 1 in 3 alerts is a false positive |
+| Recall | **100%** (42/42) — every injected anomaly was flagged |
+| Precision | **62.7%** (42/67) — about 1 in 3 alerts is a false positive |
+| False negatives | **0** |
 
 That trade-off is expected and honest: catching everything means also
 catching some legitimately unusual (but not fraudulent) spending. A real
 deployment would tune the Red/Yellow thresholds in `src/detector.py`
 against a cost model (false alert vs. missed fraud) rather than chase 100%
 on both.
+
+
 
 ## Project structure
 
