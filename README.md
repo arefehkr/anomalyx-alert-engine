@@ -4,9 +4,7 @@ A small end-to-end fraud detection pipeline: an Isolation Forest flags
 anomalous bank transactions, and a two-layer AI agent turns each flagged
 transaction into a plain-English alert for a fraud analyst.
 
-```
 ![Fraud detection pipeline architecture](docs/fraud_pipeline_architecture.png)
-```
 
 ## What it does
 
