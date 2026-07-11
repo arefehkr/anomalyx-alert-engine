@@ -5,9 +5,7 @@ anomalous bank transactions, and a two-layer AI agent turns each flagged
 transaction into a plain-English alert for a fraud analyst.
 
 ```
-Here's the full path that score travels, end to end:(docs/fraud_pipeline_architecture.png)
-
-
+![Fraud detection pipeline architecture](docs/fraud_pipeline_architecture.png)
 ```
 
 ## What it does
