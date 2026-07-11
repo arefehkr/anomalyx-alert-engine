@@ -64,9 +64,13 @@ pytest tests/ -v                        # 12 tests
 
 ## Sample output
 
+
+![Terminal output showing Llama-generated fraud alerts](docs/sample-run.png)
+
 Real output from `python run_pipeline.py` with Ollama running — the
 `headline` and `explanation` text below is written by Llama 3.2, not a
 template:
+
 
 [RED] High-Severity Transaction with Unusual Anomaly Score
 Account: Student Card  |  Amount: $67.44  |  Score: 0.94  |  Urgency: high
